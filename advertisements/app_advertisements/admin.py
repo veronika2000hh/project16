@@ -19,4 +19,9 @@ class AdvertisementAdmin(admin.ModelAdmin):
     @admin.action(description='Убрать возможность торга')
     def make_auction_as_false(self, requests, queryset):
         queryset.update(auction=False)
+
+    @admin.action(description='Добавить возможность торга')
+    def make_auction_as_true(self, request, queryset):
+        queryset.update(auction=True)
+
 admin.site.register(Advertisement, AdvertisementAdmin)
